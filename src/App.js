@@ -6,9 +6,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { 
-    
-  };
+  
    
 }
 
@@ -26,7 +24,7 @@ class App extends Component {
       <header className="App-header">
        
           {txtArray.map( (elm,idx) => {
-            return (<Line lineText={elm}/>);
+            return (<Line key={idx}  lineText={elm}/>);
           })}
        
       </header>

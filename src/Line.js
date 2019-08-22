@@ -17,8 +17,8 @@ class Line extends Component {
   return (
    
     <div>
-        {wordList.map( (wrd) => {
-            return (<Word w={wrd}/>);
+        {wordList.map( (wrd,idx) => {
+            return (<Word key={idx} w={wrd}/>);
         })}
     </div>
    
