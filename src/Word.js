@@ -14,9 +14,13 @@ class Word extends Component {
 
 clickWord()
 {
-    console.log('Word ' + this.props.w + '  is clicked');
-    console.log(this.props.dictionary[this.props.w]);
-    let tra = this.props.dictionary[this.props.w];
+    let wordClicked = this.props.w.replace(/<\/?[^>]+(>|$)/g, ""); // remove html tags
+    wordClicked = wordClicked.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""); //remove punctuation
+   
+
+    console.log('Word ' + wordClicked + '  is clicked');
+    console.log(this.props.dictionary[wordClicked]);
+    let tra = this.props.dictionary[wordClicked];
     if (tra === undefined)  {
         tra = '';
     }
@@ -32,11 +36,11 @@ clickWord()
   return (
     <div className="wordClass" onClick={this.clickWord}>         
         
-        <div class="verticalChild">
-            {this.props.w}
-        </div>
+        <div className="verticalChild"
+            dangerouslySetInnerHTML={{__html: this.props.w}}
+        />
 
-        <div class="verticalChild transltr">
+        <div className="verticalChild transltr">
             {this.state.transltr}
         </div>
         
