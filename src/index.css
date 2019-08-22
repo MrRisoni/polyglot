@@ -19,5 +19,6 @@ code {
 }
 
 .transltr {
+  display: inline;
   color:red;
 }
