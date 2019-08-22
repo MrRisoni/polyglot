@@ -17,8 +17,8 @@ class Line extends Component {
    
     <div className="lineContainer"> 
         {wordList.map( (wrd,idx) => {
-            return (<Word key={idx} lineNumber={this.props.lineNumber} 
-              wordNumber={idx}
+            return (<Word key={idx} 
+              dictionary={this.props.dictionary}
               w={wrd}/>);
         })}
     </div>

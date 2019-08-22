@@ -5,12 +5,8 @@ class Word extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        transltr : '',
-        dictionary: {
-            "Жил" : "lived" ,
-            "сапожник" : "shoemaker",
-            "сапожной" :  "shoemaker",
-        }
+        transltr : ''
+      
     }
     this.clickWord  = this.clickWord.bind(this);
    
@@ -19,8 +15,8 @@ class Word extends Component {
 clickWord()
 {
     console.log('Word ' + this.props.w + '  is clicked');
-    console.log(this.state.dictionary[this.props.w]);
-    let tra = this.state.dictionary[this.props.w];
+    console.log(this.props.dictionary[this.props.w]);
+    let tra = this.props.dictionary[this.props.w];
     if (tra === undefined)  {
         tra = '';
     }
