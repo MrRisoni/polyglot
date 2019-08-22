@@ -15,7 +15,23 @@ class App extends Component {
         "мужика" : "wife",
         "квартире" : "Quartier",
         "дома" : "house",
-        "своего" : "of his"
+        "своего" : "of his",
+        "Sneen" : "Schnee",
+        "Fjeldvidderne" : "Felderberg",
+        "Regnvejr" : "regnen",
+        "halvmørkt" : "halbdunkel",
+        "Fremmedkarl" : "Fremde",
+        "Stav" : "Staff",
+        "og" : "und",
+        "vestover" : "Westen",
+        "halvvoxne" : "halb erwachsene",
+        "Faer" : "Vater",
+        "Sprækker" : "fissures",
+        "kravler" : "crawl",
+        "sig" : "sich",
+        "sortklædt" : "schwarzgekleidet",
+        "hans" : "his",
+        "med" : "mit"
     
     }
   }
