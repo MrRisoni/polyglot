@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Line from './Line.js';
+import Book from './Book.js';
 
 
 class App extends Component {
@@ -40,6 +40,9 @@ class App extends Component {
 
   render() {
 
+    const langAbbr = this.props.match.params.langAbbr;
+    console.log(this.props.match.params);
+
     let txtRU = `<h1>Чем </h1> <h1>люди </h1> <h1>живы </h1> <br>
     <h2>I</h2> <br>
     Жил сапожник с женой и детьми у мужика на квартире. Ни дома своего, ни земли у <br>
@@ -64,21 +67,20 @@ Faer, her er Spriker! <br>
 <b>BONDEN</b>:
 Her er Sprækker! <br> `;
 
- const txt = txtNO;
+    let txt = '';
+    if (langAbbr == 'ru') {
+      txt = txtRU; 
+    }
+    if (langAbbr == 'no') {
+      txt = txtNO; 
+    }
 
-
-    const txtArray = txt.split('<br>');
-    console.log('print');
-    console.log(txtArray);
-
- 
   return (
     <div className="App">
-          {txtArray.map( (elm,idx) => {
-            return (<Line key={idx} 
-              dictionary={this.state.dictionary}
-              lineText={elm}/>);
-          })}       
+        
+        <Book txt={txt} dictionary={this.state.dictionary}/>
+
+
     </div>
   );
   }
