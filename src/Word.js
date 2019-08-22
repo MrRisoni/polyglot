@@ -8,7 +8,8 @@ class Word extends Component {
         transltr : '',
         dictionary: {
             "Жил" : "lived" ,
-            "сапожник" : "shoemaker"
+            "сапожник" : "shoemaker",
+            "сапожной" :  "shoemaker",
         }
     }
     this.clickWord  = this.clickWord.bind(this);
@@ -33,9 +34,16 @@ clickWord()
 
   
   return (
- //   <div className="sameLine">{this.props.w}</div>
-    <div className="sameLine" onClick={this.clickWord}>         
-        {this.props.w} <div className="transltr">{this.state.transltr}</div>
+    <div className="wordClass" onClick={this.clickWord}>         
+        
+        <div class="verticalChild">
+            {this.props.w}
+        </div>
+
+        <div class="verticalChild transltr">
+            {this.state.transltr}
+        </div>
+        
     </div>
 
   );

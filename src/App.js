@@ -19,15 +19,12 @@ class App extends Component {
     console.log('print');
     console.log(txtArray);
 
+ 
   return (
     <div className="App">
-      <header className="App-header">
-       
           {txtArray.map( (elm,idx) => {
-            return (<Line key={idx}  lineText={elm}/>);
-          })}
-       
-      </header>
+            return (<Line key={idx} lineNumber={idx} lineText={elm}/>);
+          })}       
     </div>
   );
   }

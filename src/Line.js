@@ -5,8 +5,7 @@ import Word from './Word.js';
 class Line extends Component {
 
   constructor(props) {
-    super(props);
-      
+    super(props);      
 }
 
   render() {
@@ -16,9 +15,11 @@ class Line extends Component {
   
   return (
    
-    <div>
+    <div className="lineContainer"> 
         {wordList.map( (wrd,idx) => {
-            return (<Word key={idx} w={wrd}/>);
+            return (<Word key={idx} lineNumber={this.props.lineNumber} 
+              wordNumber={idx}
+              w={wrd}/>);
         })}
     </div>
    

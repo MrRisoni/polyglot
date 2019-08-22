@@ -13,12 +13,24 @@ code {
 }
 
 
-.sameLine {
-  display: inline;
+
+.lineContainer {
+  overflow: hidden;
+  width: 99%;
+  margin-bottom: 10px;
+}
+
+.wordClass {
+  float: left;
   margin-left: 8px;
 }
 
+.verticalChild {
+  height:20px;
+}
+
 .transltr {
-  display: inline;
   color:red;
 }
+
+
