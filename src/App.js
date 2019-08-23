@@ -68,17 +68,27 @@ Faer, her er Spriker! <br>
 Her er Sprækker! <br> `;
 
     let txt = '';
+    let chapters = [];
+    let numPages = 0;
+
     if (langAbbr == 'ru') {
       txt = txtRU; 
+      chapters = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
+      numPages = 25;
     }
     if (langAbbr == 'no') {
       txt = txtNO; 
+      chapters = ['I','II','III','IV','V'];
+      numPages = 225;
     }
 
   return (
     <div className="App">
         
-        <Book txt={txt} dictionary={this.state.dictionary}/>
+        <Book txt={txt} 
+        chapters={chapters}
+        numPages={numPages}
+        dictionary={this.state.dictionary}/>
 
 
     </div>

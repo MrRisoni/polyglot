@@ -11,7 +11,12 @@ class Book extends Component {
   render() {
 
     const txtArray = this.props.txt.split('<br>');
-    let chapters = ['I', 'II', 'III'];
+    let pagesArray = [];
+    for (let pg =1;pg<this.props.numPages; pg++) {
+      if ( pg % 5 == 0) {
+        pagesArray.push(pg);
+      }
+    }
 
     return (
       <section>
@@ -31,7 +36,7 @@ class Book extends Component {
           <div className="col-md-auto">
             <h3>Chapters</h3>
             <ul>
-              {chapters.map((elm, idx) => {
+              {this.props.chapters.map((elm, idx) => {
                 return (<li key={idx}>
                   <a href='#'> {elm}</a>
                 </li>);
@@ -40,7 +45,7 @@ class Book extends Component {
             <br/>
             <h3>Pages</h3>
             <ul>
-              {chapters.map((elm, idx) => {
+              {pagesArray.map((elm, idx) => {
                 return (<li key={idx}>
                   <a href='#'> {elm}</a>
                 </li>);
@@ -54,19 +59,19 @@ class Book extends Component {
 
         <div className="row" id="pageSelection">
           <div className="col-sm">
-            <button type="button" class="btn btn-primary btnPage">Previous Chapter</button>
+            <button type="button" class="btn btn-xs btn-primary btnPage">Previous Chapter</button>
           </div>
 
           <div className="col-sm">
-            <button type="button" class="btn btn-primary btnPage">Previous Page</button>
+            <button type="button" class="btn btn-xs btn-primary btnPage">Previous Page</button>
           </div>
 
           <div className="col-sm">
-            <button type="button" class="btn btn-secondary btnPage">Next Page</button>
+            <button type="button" class="btn btn-xs btn-secondary btnPage">Next Page</button>
           </div>
 
           <div className="col-sm">
-            <button type="button" class="btn btn-secondary btnPage">Next Chapter</button>
+            <button type="button" class="btn btn-xs btn-secondary btnPage">Next Chapter</button>
           </div>
 
         </div>
