@@ -38,3 +38,16 @@ code {
   text-align: center;
 }
 
+
+#pageSelection {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 1%;
+  width: 100%;
+  text-align: center;
+}
+
+.btnPage {
+  margin-bottom: 5px; 
+}

@@ -16,7 +16,7 @@ class FlashCard extends Component {
             <section>
 
                 <div className="row">
-                    <div className="col-8">
+                    <div className="col-8 offset-2">
                         <div className="jumbotron flashCard">
                             <h1 className="display-4"><b>спутник</b></h1>
                             <br />
@@ -32,7 +32,7 @@ class FlashCard extends Component {
 
 
                 <div className="row">
-                    <div className="col-1 offset-1">
+                    <div className="col-1 offset-4">
 
                         <button type="button" className="btn btn-danger">Hard</button>
                     </div>
@@ -50,6 +50,12 @@ class FlashCard extends Component {
                         <button type="button" className="btn btn-success">Very Easy</button>
                     </div>
 
+                </div>
+
+                <div className="row">
+                    <div className="col-9 offset-4">
+                        Total Cards:  , Styding now : # cards
+                    </div>
                 </div>
             </section>
         );
