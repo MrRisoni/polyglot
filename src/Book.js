@@ -59,19 +59,19 @@ class Book extends Component {
 
         <div className="row" id="pageSelection">
           <div className="col-sm">
-            <button type="button" class="btn btn-xs btn-primary btnPage">Previous Chapter</button>
+            <button type="button" class="btn btn-sm btn-primary btnPage">Previous Chapter</button>
           </div>
 
           <div className="col-sm">
-            <button type="button" class="btn btn-xs btn-primary btnPage">Previous Page</button>
+            <button type="button" class="btn btn-sm btn-primary btnPage">Previous Page</button>
           </div>
 
           <div className="col-sm">
-            <button type="button" class="btn btn-xs btn-secondary btnPage">Next Page</button>
+            <button type="button" class="btn btn-sm btn-secondary btnPage">Next Page</button>
           </div>
 
           <div className="col-sm">
-            <button type="button" class="btn btn-xs btn-secondary btnPage">Next Chapter</button>
+            <button type="button" class="btn btn-smbtn-secondary btnPage">Next Chapter</button>
           </div>
 
         </div>
