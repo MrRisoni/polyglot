@@ -6,20 +6,19 @@ import FlashyLangChooser from './FlashyLangChooser';
 import FlashCard from './FlashCard';
 
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter , Route } from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 
 
-
+//<Route   path="/:langAbbr" component={App} />
+//            <Route path="/flashes/flash" component={FlashCard}/>
 
 ReactDOM.render(
-      <BrowserRouter>
+    <BrowserRouter>
         <div>
-          <Route   path="/:langAbbr" component={App} />
-          <Route   path="/flashes/begin" component={FlashyLangChooser} />
-          <Route   path="/flashes/flash" component={FlashCard} />
+            <Route path="/" component={FlashCard}/>
         </div>
-      </BrowserRouter>,
+    </BrowserRouter>,
     document.getElementById('root'),
-  );
+);
 
-  serviceWorker.unregister();
+serviceWorker.unregister();
