@@ -9,7 +9,9 @@ class FlashCard extends Component {
         this.state = {
             cards: [],
             translations:[],
+            langsList:[],
             counter: 0,
+            chosenLangId : 4,
             fetched: false,
             showHints: false,
             showExample:false,
@@ -20,6 +22,9 @@ class FlashCard extends Component {
 
         this.clickShowHints = this.clickShowHints.bind(this);
         this.clickNextCard = this.clickNextCard.bind(this);
+        this.fetchWords = this.fetchWords.bind(this);
+        this.chooseLang = this.chooseLang.bind(this);
+
 
     }
 
@@ -53,22 +58,48 @@ class FlashCard extends Component {
         })
     }
 
+
+    fetchWords(lgId) {
+        const self = this;
+        console.log('fetchWords of ' + lgId);
+
+        // 'http://localhost:3500/api/wordsdue/4'
+        axios.get('https://shielded-brook-92440.herokuapp.com/api/wordsdue/' + lgId).then(rsp => {
+            self.setState({
+                cards: rsp.data,
+                fetched: true,
+                chosenLangId: lgId
+            })
+        });
+    }
+
+
+    chooseLang(ev)
+    {
+        this.fetchWords(ev.target.value);
+    }
+
     componentDidMount() {
         const self = this;
         // 'http://localhost:3500/api/wordsdue/4'
-        axios.get('https://shielded-brook-92440.herokuapp.com/api/wordsdue/4').then(rsp => {
+        axios.get('https://shielded-brook-92440.herokuapp.com/api/wordsdue/' + this.state.chosenLangId).then(rsp => {
             console.log(rsp.data);
             self.setState({
                 cards: rsp.data,
                 fetched: true
             })
-        })
+        });
 
 
         axios.get('https://shielded-brook-92440.herokuapp.com/api/transtl/4').then(rsp => {
-            console.log(rsp.data);
             self.setState({
                 translations: rsp.data,
+            })
+        });
+
+        axios.get('https://shielded-brook-92440.herokuapp.com/api/langs').then(rsp => {
+            self.setState({
+                langsList: rsp.data,
             })
         })
     }
@@ -150,6 +181,19 @@ class FlashCard extends Component {
                 <div className="row">
                     <div className="col-9 offset-4">
                         Total Cards:{this.state.cards.length} cards , Styding now  #{this.state.counter+1}
+                    </div>
+                </div>
+
+
+                <div className="row" id="langChooser">
+                    <div className="col-4 offset-4" >
+                            <label htmlFor="exampleFormControlSelect1">Choose Language</label>
+                            <select className="form-control" id="exampleFormControlSelect1" onChange={this.chooseLang}>
+                                {this.state.langsList.map((lg) => {
+                                    return (<option selected={lg.id== this.state.chosenLangId} value={lg.id}>{lg.title}</option>)
+                                })}
+                            </select>
+
                     </div>
                 </div>
             </main>

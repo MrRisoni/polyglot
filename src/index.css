@@ -27,6 +27,10 @@ code {
     margin-left: 8px;
 }
 
+#langChooser {
+    margin-bottom: 5%
+}
+
 .verticalChild {
     height: 20px;
 }
