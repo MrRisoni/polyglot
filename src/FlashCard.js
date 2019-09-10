@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 
 class FlashCard extends Component {
 
@@ -7,11 +8,14 @@ class FlashCard extends Component {
         super(props);
         this.state = {
             cards: [],
+            translations:[],
             counter: 0,
             fetched: false,
             showHints: false,
             showExample:false,
             avgDueText:0,
+            hints:[],
+            properTranslation:'',
         };
 
         this.clickShowHints = this.clickShowHints.bind(this);
@@ -23,8 +27,22 @@ class FlashCard extends Component {
     {
         let newCounter = this.state.counter;
         newCounter++;
+
+        let properTranslation = this.state.translations.filter( tr => tr.wordId == this.state.cards[newCounter].wordId)[0].meaning;
+        let hints = [properTranslation];
+
+        let shuffledTranslations = _.shuffle( this.state.translations);
+
+        let maxHints = 5;
+        for (let hc =0 ; hc< Math.min(maxHints, shuffledTranslations.length); hc++) {
+            hints.push(shuffledTranslations[hc].meaning)
+        }
+
         this.setState({
-            counter: newCounter
+            counter: newCounter,
+            showHints: false,
+            hints: _.shuffle(hints),
+            showExample: false
         })
     }
 
@@ -43,6 +61,14 @@ class FlashCard extends Component {
             self.setState({
                 cards: rsp.data,
                 fetched: true
+            })
+        })
+
+
+        axios.get('https://shielded-brook-92440.herokuapp.com/api/transtl/4').then(rsp => {
+            console.log(rsp.data);
+            self.setState({
+                translations: rsp.data,
             })
         })
     }
@@ -65,8 +91,9 @@ class FlashCard extends Component {
 
                                     {this.state.showHints &&
                                         <ul id="hints">
-                                            <li className="transltr">companion</li>
-                                            <li className="transltr">companion</li>
+                                            {this.state.hints.map((hnt) => {
+                                                return (<li className="transltr">{hnt}</li>)
+                                            })}
                                         </ul>
                                     }
                                 </div>
@@ -88,7 +115,7 @@ class FlashCard extends Component {
                 {this.state.fetched &&
                     <div className="row offset-4" id="OptionButtons">
                         Show in
-                        <div className="col-9 ">
+                        <div className="col-4 ">
                             <div className="form-group">
                                 <input type="text" className="form-control" id="textDays"
                                        value={this.state.cards[this.state.counter].avgDue}/>
