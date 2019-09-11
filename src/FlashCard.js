@@ -26,8 +26,8 @@ class FlashCard extends Component {
         this.fetchWords = this.fetchWords.bind(this);
         this.chooseLang = this.chooseLang.bind(this);
 
-        this.endPoint =  'https://shielded-brook-92440.herokuapp.com'; //'http://localhost:3500';  //
-        this.endPoint =  'http://localhost:3500';
+        this.endPoint =  'https://shielded-brook-92440.herokuapp.com';
+      //  this.endPoint =  'http://localhost:3500';
 
         this.changeAvgDays = this.changeAvgDays.bind(this);
 
@@ -202,27 +202,6 @@ class FlashCard extends Component {
                 }
 
 
-                {/* <div className="row" id="OptionButtons">
-                    <div className="col-1 offset-4">
-
-                        <button type="button" className="btn btn-danger">Hard</button>
-                    </div>
-                    <div className="col-1">
-
-                        <button type="button" className="btn btn-warning">Medium</button>
-                    </div>
-
-                    <div className="col-1">
-
-                        <button type="button" className="btn btn-primary">Easy</button>
-                    </div>
-                    <div className="col-2">
-
-                        <button type="button" className="btn btn-success">Very Easy</button>
-                    </div>
-                </div> */}
-
-
                 <div className="row">
                     <div className="col-9 offset-4">
                         Total Cards:{this.state.cards.length} cards , Styding now  #{this.state.counter+1}
@@ -235,7 +214,7 @@ class FlashCard extends Component {
                             <label htmlFor="exampleFormControlSelect1">Choose Language</label>
                             <select className="form-control" id="exampleFormControlSelect1" onChange={this.chooseLang}>
                                 {this.state.langsList.map((lg) => {
-                                    return (<option selected={lg.id== this.state.chosenLangId} value={lg.id}>{lg.title}</option>)
+                                    return (<option key={lg.id} selected={lg.id== this.state.chosenLangId} value={lg.id}>{lg.title}</option>)
                                 })}
                             </select>
 
