@@ -7,6 +7,7 @@ class NewWord extends Component {
         super(props);
         this.state = {
             langsList:[],
+            langsListForeign:[],
             foreignLangId:0,
             transLangId:0,
             meaning:'',
@@ -17,6 +18,7 @@ class NewWord extends Component {
         };
 
         this.endPoint =  'https://shielded-brook-92440.herokuapp.com';
+       // this.endPoint =  'http://localhost:3500';
 
         this.chooseLangForeign = this.chooseLangForeign.bind(this);
         this.chooseLangTrans = this.chooseLangTrans.bind(this);
@@ -33,9 +35,14 @@ class NewWord extends Component {
 
     saveWord()
     {
+        console.log();
+
+        axios.post(this.endPoint + '/api/newword', this.state).then(foo => {
+            console.log('ok');
+        })
 
     }
-    
+
     handleChangeForeign(ev){
         this.setState({ foreign: ev.target.value});
     }
@@ -59,6 +66,7 @@ class NewWord extends Component {
 
 
     chooseLangForeign(ev){
+        console.log(ev.target.value);
         this.setState({foreignLangId: ev.target.value});
     }
 
@@ -70,11 +78,18 @@ class NewWord extends Component {
     componentDidMount() {
         const self = this;
 
-             axios.get(self.endPoint +  '/api/langs').then(rsp => {
+        axios.get(self.endPoint + '/api/langs').then(rsp => {
+            self.setState({
+                langsListForeign: rsp.data,
+            });
+        });
+
+
+        axios.get(self.endPoint + '/api/langsall').then(rsp => {
             self.setState({
                 langsList: rsp.data,
-            })
-        })
+            });
+        });
     }
 
     render() {
@@ -85,7 +100,7 @@ class NewWord extends Component {
                     <div className="col-4 offset-4" >
                         <label htmlFor="selectForeign">Choose Foreign Language</label>
                         <select className="form-control" id="selectForeign" onChange={this.chooseLangForeign}>
-                            {this.state.langsList.map((lg) => {
+                            {this.state.langsListForeign.map((lg) => {
                                 return (<option key={lg.id}  value={lg.id}>{lg.title}</option>)
                             })}
                         </select>
