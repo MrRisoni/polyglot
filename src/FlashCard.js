@@ -12,6 +12,7 @@ class FlashCard extends Component {
             langsList:[],
             counter: 0,
             chosenLangId : 4,
+            currentWordId:0,
             fetched: false,
             showHints: false,
             showExample:false,
@@ -25,7 +26,22 @@ class FlashCard extends Component {
         this.fetchWords = this.fetchWords.bind(this);
         this.chooseLang = this.chooseLang.bind(this);
 
+        this.endPoint = 'http://localhost:3500';  //  https://shielded-brook-92440.herokuapp.com
 
+        this.changeAvgDays = this.changeAvgDays.bind(this);
+
+        this.updateDays = this.updateDays.bind(this);
+    }
+
+    updateDays()
+    {
+        console.log(this.state.avgDueText +  ' ' + this.state.currentWordId);
+    }
+
+    changeAvgDays(ev) {
+        this.setState({
+            avgDueText: ev.target.value
+        })
     }
 
     clickNextCard()
@@ -33,7 +49,16 @@ class FlashCard extends Component {
         let newCounter = this.state.counter;
         newCounter++;
 
-        let properTranslation = this.state.translations.filter( tr => tr.wordId == this.state.cards[newCounter].wordId)[0].meaning;
+        if (newCounter == this.state.cards.length) {
+            newCounter =0;
+        }
+
+        let properTranslation = '';
+        const properTranslationObj = this.state.translations.filter( tr => tr.wordId == this.state.cards[newCounter].wordId);
+        if (properTranslationObj.length >0) {
+             properTranslation = this.state.translations.filter(tr => tr.wordId == this.state.cards[newCounter].wordId)[0].meaning;
+        }
+
         let hints = [properTranslation];
 
         let shuffledTranslations = _.shuffle( this.state.translations);
@@ -45,9 +70,11 @@ class FlashCard extends Component {
 
         this.setState({
             counter: newCounter,
+            currentWordId: this.state.cards[newCounter].wordId,
             showHints: false,
             hints: _.shuffle(hints),
-            showExample: false
+            showExample: false,
+            avgDueText: this.state.cards[this.state.counter].avgDue
         })
     }
 
@@ -63,12 +90,13 @@ class FlashCard extends Component {
         const self = this;
         console.log('fetchWords of ' + lgId);
 
-        // 'http://localhost:3500/api/wordsdue/4'
-        axios.get('https://shielded-brook-92440.herokuapp.com/api/wordsdue/' + lgId).then(rsp => {
+        axios.get(self.endPoint + '/api/wordsdue/' + lgId).then(rsp => {
             self.setState({
                 cards: rsp.data,
                 fetched: true,
-                chosenLangId: lgId
+                chosenLangId: lgId,
+                currentWordId: rsp.data[0].wordId,
+
             })
         });
     }
@@ -76,28 +104,26 @@ class FlashCard extends Component {
 
     chooseLang(ev)
     {
-        this.fetchWords(ev.target.value);
+       this.fetchWords(ev.target.value);
     }
 
     componentDidMount() {
         const self = this;
-        // 'http://localhost:3500/api/wordsdue/4'
-        axios.get('https://shielded-brook-92440.herokuapp.com/api/wordsdue/' + this.state.chosenLangId).then(rsp => {
+
+        this.fetchWords(4);
+
+        axios.get(self.endPoint + '/api/transtl/4').then(rsp => {
+
             console.log(rsp.data);
-            self.setState({
-                cards: rsp.data,
-                fetched: true
-            })
-        });
 
-
-        axios.get('https://shielded-brook-92440.herokuapp.com/api/transtl/4').then(rsp => {
             self.setState({
                 translations: rsp.data,
             })
         });
 
-        axios.get('https://shielded-brook-92440.herokuapp.com/api/langs').then(rsp => {
+
+
+        axios.get(self.endPoint +  '/api/langs').then(rsp => {
             self.setState({
                 langsList: rsp.data,
             })
@@ -144,16 +170,28 @@ class FlashCard extends Component {
 
 
                 {this.state.fetched &&
+                <section>
                     <div className="row offset-4" id="OptionButtons">
                         Show in
                         <div className="col-4 ">
                             <div className="form-group">
                                 <input type="text" className="form-control" id="textDays"
-                                       value={this.state.cards[this.state.counter].avgDue}/>
+                                       onChange={this.changeAvgDays}
+                                       value={this.state.avgDueText}/>
                             </div>
-                            <button type="button" className="btn btn-danger" onClick={this.clickNextCard}>Next Card</button>
+
+                        </div>
+                        <div className="col-4 ">
+                            <button type="button" className="btn btn-primary" onClick={this.updateDays}>Update
+                            </button>
                         </div>
                     </div>
+
+                    <div className="row offset-4" id="OptionButtons">
+                        <button type="button" className="btn btn-danger" onClick={this.clickNextCard}>Next Card</button>
+                    </div>
+                </section>
+
                 }
 
 
