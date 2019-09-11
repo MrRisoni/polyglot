@@ -26,7 +26,8 @@ class FlashCard extends Component {
         this.fetchWords = this.fetchWords.bind(this);
         this.chooseLang = this.chooseLang.bind(this);
 
-        this.endPoint = 'http://localhost:3500';  //  https://shielded-brook-92440.herokuapp.com
+        this.endPoint =  'https://shielded-brook-92440.herokuapp.com'; //'http://localhost:3500';  //
+        this.endPoint =  'http://localhost:3500';
 
         this.changeAvgDays = this.changeAvgDays.bind(this);
 
@@ -35,7 +36,13 @@ class FlashCard extends Component {
 
     updateDays()
     {
-        console.log(this.state.avgDueText +  ' ' + this.state.currentWordId);
+        console.log(this.state.avgDueText + ' ' + this.state.currentWordId);
+        axios.post(this.endPoint + '/api/update_due', {
+            wordId: this.state.currentWordId,
+            due: this.state.avgDueText
+        }).then(foo => {
+            console.log('ok');
+        })
     }
 
     changeAvgDays(ev) {
