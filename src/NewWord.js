@@ -6,19 +6,19 @@ class NewWord extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            langsList:[],
-            langsListForeign:[],
-            foreignLangId:0,
-            transLangId:0,
-            meaning:'',
-            pronounce:'',
-            comment:'',
-            stem:'',
-            foreign:''
+            langsList: [],
+            langsListForeign: [],
+            foreignLangId: 0,
+            transLangId: 0,
+            meaning: '',
+            pronounce: '',
+            comment: '',
+            stem: '',
+            foreign: ''
         };
 
-        this.endPoint =  'https://shielded-brook-92440.herokuapp.com';
-       // this.endPoint =  'http://localhost:3500';
+        this.endPoint = 'https://shielded-brook-92440.herokuapp.com';
+        // this.endPoint =  'http://localhost:3500';
 
         this.chooseLangForeign = this.chooseLangForeign.bind(this);
         this.chooseLangTrans = this.chooseLangTrans.bind(this);
@@ -33,44 +33,50 @@ class NewWord extends Component {
 
     }
 
-    saveWord()
-    {
+    saveWord() {
         console.log();
-
+        const self = this;
         axios.post(this.endPoint + '/api/newword', this.state).then(foo => {
             console.log('ok');
+            self.setState({
+                foreign: '',
+                stem: '',
+                comment: '',
+                pronounce: '',
+                meaning: ''
+            })
         })
 
     }
 
-    handleChangeForeign(ev){
-        this.setState({ foreign: ev.target.value});
+    handleChangeForeign(ev) {
+        this.setState({foreign: ev.target.value});
     }
 
 
-    handleChangePronounce(ev){
-        this.setState({ pronounce: ev.target.value});
+    handleChangePronounce(ev) {
+        this.setState({pronounce: ev.target.value});
     }
 
-    handleChangeStem(ev){
-        this.setState({ stem: ev.target.value});
+    handleChangeStem(ev) {
+        this.setState({stem: ev.target.value});
     }
 
-    handleChangeTranslate(ev){
-        this.setState({ meaning: ev.target.value});
+    handleChangeTranslate(ev) {
+        this.setState({meaning: ev.target.value});
     }
 
-    handleChangeComment(ev){
-        this.setState({ comment: ev.target.value});
+    handleChangeComment(ev) {
+        this.setState({comment: ev.target.value});
     }
 
 
-    chooseLangForeign(ev){
+    chooseLangForeign(ev) {
         console.log(ev.target.value);
         this.setState({foreignLangId: ev.target.value});
     }
 
-    chooseLangTrans(ev){
+    chooseLangTrans(ev) {
         this.setState({transLangId: ev.target.value});
     }
 
@@ -97,70 +103,90 @@ class NewWord extends Component {
             <section>
 
                 <div className="row" id="langChooser">
-                    <div className="col-4 offset-4" >
+                    <div className="col-4 offset-4">
                         <label htmlFor="selectForeign">Choose Foreign Language</label>
                         <select className="form-control" id="selectForeign" onChange={this.chooseLangForeign}>
+                            <option key={0} value='0'>Choose</option>
+
                             {this.state.langsListForeign.map((lg) => {
-                                return (<option key={lg.id}  value={lg.id}>{lg.title}</option>)
+                                return (<option key={lg.id} value={lg.id}>{lg.title}</option>)
                             })}
                         </select>
 
                     </div>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Foreign Word</label>
-                    <input type="email" className="form-control" id="foreignWord"
-                           placeholder="Foreign Word" value={this.state.foreign} onChange={this.handleChangeForeign}/>
+                <div className="row">
+                    <div className="col-4 offset-4 form-group">
+                        <label htmlFor="foreignWord">Foreign Word</label>
+                        <input type="email" className="form-control" id="foreignWord"
+                               placeholder="Foreign Word" value={this.state.foreign}
+                               onChange={this.handleChangeForeign}/>
+                    </div>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Pronounciation</label>
-                    <input type="email" className="form-control" id="pronounce"
-                           placeholder="Pronounciation" value={this.state.pronounce} onChange={this.handleChangePronounce}/>
+                <div className="row">
+                    <div className="col-4 offset-4 form-group">
+                        <label htmlFor="translate">Translation</label>
+                        <input type="email" className="form-control" id="translate"
+                               placeholder="Translation" value={this.state.meaning}
+                               onChange={this.handleChangeTranslate}/>
+                    </div>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Stem</label>
-                    <input type="email" className="form-control" id="Stem"
-                           placeholder="Stem" value={this.state.stem} onChange={this.handleChangeStem}/>
-                </div>
+                {this.state.foreignLangId == 4 &&
+                    <div className="row">
+                        <div className="col-4 offset-4 form-group">
+                            <label htmlFor="pronounce">Pronounciation</label>
+                            <input type="email" className="form-control" id="pronounce"
+                                   placeholder="Pronounciation" value={this.state.pronounce}
+                                   onChange={this.handleChangePronounce}/>
+                        </div>
+                    </div>
+                }
+
+                {this.state.foreignLangId == 4 &&
+                    <div className="row">
+                        <div className="col-4 offset-4 form-group">
+                            <label htmlFor="Stem">Stem</label>
+                            <input type="email" className="form-control" id="Stem"
+                                   placeholder="Stem" value={this.state.stem} onChange={this.handleChangeStem}/>
+                        </div>
+                    </div>
+                }
 
 
                 <div className="row" id="langChooser">
-                    <div className="col-4 offset-4" >
+                    <div className="col-4 offset-4">
                         <label htmlFor="selectTranslate">Choose Translation Language</label>
                         <select className="form-control" id="selectTranslate" onChange={this.chooseLangTrans}>
+                            <option key={0} value='0'>Choose</option>
                             {this.state.langsList.map((lg) => {
-                                return (<option key={lg.id}  value={lg.id}>{lg.title}</option>)
+                                return (<option key={lg.id} value={lg.id}>{lg.title}</option>)
                             })}
                         </select>
 
                     </div>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Translation</label>
-                    <input type="email" className="form-control" id="translate"
-                           placeholder="Translation" value={this.state.meaning} onChange={this.handleChangeTranslate}/>
-                </div>
 
-
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Comments</label>
-                    <input type="email" className="form-control" id="comment"
-                           placeholder="Comments"value={this.state.comment} onChange={this.handleChangeComment} />
-                </div>
+                {this.state.foreignLangId == 4 &&
+                    <div className="row">
+                        <div className="col-4 offset-4 form-group">
+                            <label htmlFor="comment">Comments</label>
+                            <input type="email" className="form-control" id="comment"
+                                   placeholder="Comments" value={this.state.comment} onChange={this.handleChangeComment}/>
+                        </div>
+                    </div>
+                }
 
 
                 <div className="row">
-                    <div className="col-4 ">
+                    <div className="col-4 offset-4">
                         <button type="button" className="btn btn-primary" onClick={this.saveWord}>Save
                         </button>
                     </div>
                 </div>
-
-
 
 
             </section>
