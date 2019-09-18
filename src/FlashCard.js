@@ -68,10 +68,14 @@ class FlashCard extends Component {
 
         let hints = [properTranslation];
 
-        let shuffledTranslations = _.shuffle( this.state.translations);
+
+        let shuffledTranslations = this.state.translations.filter(tr => tr.posId == this.state.cards[newCounter].posId );
+        shuffledTranslations = _.shuffle( shuffledTranslations);
+
 
         let maxHints = 5;
         for (let hc =0 ; hc< Math.min(maxHints, shuffledTranslations.length); hc++) {
+            console.log(shuffledTranslations[hc]);
             hints.push(shuffledTranslations[hc].meaning)
         }
 
@@ -103,6 +107,7 @@ class FlashCard extends Component {
                 fetched: true,
                 chosenLangId: lgId,
                 currentWordId: rsp.data[0].wordId,
+                counter:0
 
             })
         });

@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4f162935-799a-45ab-b7a8-269efde10963" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NewWord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewWord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FlashCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlashCard.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="29" column="19" selection-start-line="29" selection-end-line="30" />
+            <state relative-caret-position="350">
+              <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -60,10 +60,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NewWord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="1802">
               <caret line="107" column="74" selection-start-line="107" selection-start-column="61" selection-end-line="107" selection-end-column="74" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -88,6 +88,7 @@
       <find>avgDueText</find>
       <find>chooseLangForeign</find>
       <find>foreignLangId</find>
+      <find>chosenLangId</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -98,9 +99,9 @@
       <list>
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/index.css" />
-        <option value="$PROJECT_DIR$/src/FlashCard.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/NewWord.js" />
+        <option value="$PROJECT_DIR$/src/FlashCard.js" />
       </list>
     </option>
   </component>
@@ -115,6 +116,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -136,7 +138,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -180,11 +181,14 @@
       <workItem from="1568263730818" duration="832000" />
       <workItem from="1568438549275" duration="36000" />
       <workItem from="1568528930066" duration="780000" />
+      <workItem from="1568604965792" duration="597000" />
+      <workItem from="1568825231138" duration="884000" />
+      <workItem from="1568827836099" duration="1696000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17513000" />
+    <option name="totallyTimeSpent" value="20690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -276,8 +280,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="19" selection-start-line="29" selection-end-line="30" />
+        <state relative-caret-position="350">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -303,7 +307,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NewWord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="1802">
           <caret line="107" column="74" selection-start-line="107" selection-start-column="61" selection-end-line="107" selection-end-column="74" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
