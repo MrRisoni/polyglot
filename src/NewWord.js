@@ -8,6 +8,8 @@ class NewWord extends Component {
         this.state = {
             langsList: [],
             langsListForeign: [],
+            posList:[],
+            chosenPosId: 0,
             foreignLangId: 0,
             transLangId: 0,
             meaning: '',
@@ -29,6 +31,7 @@ class NewWord extends Component {
         this.handleChangeComment = this.handleChangeComment.bind(this);
         this.handleChangeStem = this.handleChangeStem.bind(this);
 
+        this.handleChangePOS = this.handleChangePOS.bind(this);
         this.saveWord = this.saveWord.bind(this);
 
     }
@@ -47,6 +50,10 @@ class NewWord extends Component {
             })
         })
 
+    }
+
+    handleChangePOS(ev) {
+        this.setState({chosenPosId: ev.target.value});
     }
 
     handleChangeForeign(ev) {
@@ -96,6 +103,12 @@ class NewWord extends Component {
                 langsList: rsp.data,
             });
         });
+
+        axios.get(self.endPoint + '/api/pos').then(rsp => {
+            self.setState({
+                posList: rsp.data,
+            });
+        });
     }
 
     render() {
@@ -112,7 +125,6 @@ class NewWord extends Component {
                                 return (<option key={lg.id} value={lg.id}>{lg.title}</option>)
                             })}
                         </select>
-
                     </div>
                 </div>
 
@@ -131,6 +143,19 @@ class NewWord extends Component {
                         <input type="email" className="form-control" id="translate"
                                placeholder="Translation" value={this.state.meaning}
                                onChange={this.handleChangeTranslate}/>
+                    </div>
+                </div>
+
+
+                <div className="row" id="langChooser">
+                    <div className="col-4 offset-4">
+                        <label htmlFor="selectPOS">Choose POS</label>
+                        <select className="form-control" id="selectPOS" onChange={this.handleChangePOS}>
+                            <option key={0} value='0'>Choose</option>
+                            {this.state.posList.map((ps) => {
+                                return (<option key={ps.id} value={ps.id}>{ps.title}</option>)
+                            })}
+                        </select>
                     </div>
                 </div>
 
@@ -165,7 +190,6 @@ class NewWord extends Component {
                                 return (<option key={lg.id} value={lg.id}>{lg.title}</option>)
                             })}
                         </select>
-
                     </div>
                 </div>
 
