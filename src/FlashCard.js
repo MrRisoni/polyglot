@@ -121,7 +121,7 @@ class FlashCard extends Component {
 
         axios.get(self.endPoint + '/api/wordsdue/' + lgId).then(rsp => {
             self.setState({
-                cards: rsp.data,
+                cards: _.shuffle(rsp.data),
                 fetched: true,
                 chosenLangId: lgId,
                 currentWordId: rsp.data[0].wordId,
