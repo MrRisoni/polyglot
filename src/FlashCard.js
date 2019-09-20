@@ -25,6 +25,8 @@ class FlashCard extends Component {
         this.clickShowHints = this.clickShowHints.bind(this);
         this.clickNextCard = this.clickNextCard.bind(this);
         this.fetchWords = this.fetchWords.bind(this);
+        this.fetchTranslations= this.fetchTranslations.bind(this);
+
         this.chooseLang = this.chooseLang.bind(this);
 
         this.endPoint =  'https://shielded-brook-92440.herokuapp.com';
@@ -130,25 +132,31 @@ class FlashCard extends Component {
     }
 
 
+    fetchTranslations(lgId) {
+        const self = this;
+
+        axios.get(self.endPoint + '/api/transtl/' + lgId).then(rsp => {
+           self.setState({
+                translations: rsp.data,
+            })
+        });
+
+    }
+
+
+
     chooseLang(ev)
     {
        this.fetchWords(ev.target.value);
+        this.fetchTranslations(ev.target.value);
+
     }
 
     componentDidMount() {
         const self = this;
 
         this.fetchWords(4);
-
-        axios.get(self.endPoint + '/api/transtl/4').then(rsp => {
-
-            console.log(rsp.data);
-
-            self.setState({
-                translations: rsp.data,
-            })
-        });
-
+        this.fetchTranslations(4);
 
 
         axios.get(self.endPoint +  '/api/langs').then(rsp => {
