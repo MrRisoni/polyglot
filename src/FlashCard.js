@@ -16,6 +16,7 @@ class FlashCard extends Component {
             fetched: false,
             showHints: false,
             showExample:false,
+            showTranslation:false,
             avgDueText:0,
             hints:[],
             properTranslation:'',
@@ -32,16 +33,29 @@ class FlashCard extends Component {
         this.changeAvgDays = this.changeAvgDays.bind(this);
 
         this.updateDays = this.updateDays.bind(this);
+
+        this.clickShowTranslation = this.clickShowTranslation.bind(this);
     }
+
+    clickShowTranslation()
+    {
+        this.setState({
+            showTranslation: true
+        })
+    }
+
 
     updateDays()
     {
+
+        const self = this;
         console.log(this.state.avgDueText + ' ' + this.state.currentWordId);
         axios.post(this.endPoint + '/api/update_due', {
             wordId: this.state.currentWordId,
             due: this.state.avgDueText
         }).then(foo => {
             console.log('ok');
+            self.clickNextCard();
         })
     }
 
@@ -85,6 +99,8 @@ class FlashCard extends Component {
             showHints: false,
             hints: _.shuffle(hints),
             showExample: false,
+            showTranslation: false,
+            properTranslation:properTranslation,
             avgDueText: this.state.cards[this.state.counter].avgDue
         })
     }
@@ -158,6 +174,10 @@ class FlashCard extends Component {
                                     <br/>
                                     <br/>
 
+                                    {this.state.showTranslation &&
+                                     <h1 className="display-4 translationTxt"><b>{this.state.properTranslation}</b></h1>
+                                    }
+
                                     {this.state.showHints &&
                                         <ul id="hints">
                                             {this.state.hints.map((hnt) => {
@@ -172,8 +192,11 @@ class FlashCard extends Component {
                 }
 
                 <div className="row" id="OptionButtons">
-                    <div className="col-2 offset-4">
+                    <div className="col-2 offset-3">
                         <button type="button" className="btn btn-warning" onClick={this.clickShowHints}>Hints</button>
+                    </div>
+                    <div className="col-2">
+                        <button type="button" className="btn btn-primary" onClick={this.clickShowTranslation}>Translate</button>
                     </div>
                     <div className="col-2">
                         <button type="button" className="btn btn-danger">Example</button>
