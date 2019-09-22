@@ -75,29 +75,38 @@ class FlashCard extends Component {
         if (newCounter == this.state.cards.length) {
             newCounter =0;
         }
+        let shuffledTranslations = _.shuffle( this.state.translations);
 
+        const thisPosId = this.state.cards[newCounter].posId;
+        const thisWordId = this.state.cards[newCounter].wordId;
+
+        let hints =[];
         let properTranslation = '';
-        const properTranslationObj = this.state.translations.filter( tr => tr.wordId == this.state.cards[newCounter].wordId);
+        const properTranslationObj = shuffledTranslations.filter( tr => tr.wordId == thisWordId);
         if (properTranslationObj.length >0) {
-             properTranslation = this.state.translations.filter(tr => tr.wordId == this.state.cards[newCounter].wordId)[0].meaning;
+             properTranslation = properTranslationObj[0].meaning;
+            hints.push(properTranslation)
         }
-
-        let hints = [properTranslation];
-
-
-        let shuffledTranslations = this.state.translations.filter(tr => tr.posId == this.state.cards[newCounter].posId );
-        shuffledTranslations = _.shuffle( shuffledTranslations);
-
 
         let maxHints = 5;
-        for (let hc =0 ; hc< Math.min(maxHints, shuffledTranslations.length); hc++) {
-            console.log(shuffledTranslations[hc]);
-            hints.push(shuffledTranslations[hc].meaning)
+
+        let otherWorldTranslations = shuffledTranslations.filter(tr => (tr.posId ==thisPosId && tr.wordId != thisWordId)  );
+
+        let pickUpBucket = otherWorldTranslations;
+        if (otherWorldTranslations.length < maxHints) { // no words with same POS
+            pickUpBucket = shuffledTranslations;
         }
+
+        for (let k =0; k < maxHints; k++) {
+            hints.push(pickUpBucket[k].meaning)
+        }
+
+        hints = _.shuffle( hints);
+
 
         this.setState({
             counter: newCounter,
-            currentWordId: this.state.cards[newCounter].wordId,
+            currentWordId: thisWordId,
             showHints: false,
             hints: _.shuffle(hints),
             showExample: false,

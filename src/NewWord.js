@@ -153,7 +153,7 @@ class NewWord extends Component {
                         <select className="form-control" id="selectPOS" onChange={this.handleChangePOS}>
                             <option key={0} value='0'>Choose</option>
                             {this.state.posList.map((ps) => {
-                                return (<option key={ps.id} value={ps.id}>{ps.title}</option>)
+                                return (<option key={ps.id} selected={ps.title.indexOf("Undefined") > -1} value={ps.id}>{ps.title}</option>)
                             })}
                         </select>
                     </div>
