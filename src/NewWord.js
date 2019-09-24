@@ -131,7 +131,7 @@ class NewWord extends Component {
                 <div className="row">
                     <div className="col-4 offset-4 form-group">
                         <label htmlFor="foreignWord">Foreign Word</label>
-                        <input type="email" className="form-control" id="foreignWord"
+                        <input type="text" className="form-control" id="foreignWord"
                                placeholder="Foreign Word" value={this.state.foreign}
                                onChange={this.handleChangeForeign}/>
                     </div>
@@ -140,7 +140,7 @@ class NewWord extends Component {
                 <div className="row">
                     <div className="col-4 offset-4 form-group">
                         <label htmlFor="translate">Translation</label>
-                        <input type="email" className="form-control" id="translate"
+                        <input type="text" className="form-control" id="translate"
                                placeholder="Translation" value={this.state.meaning}
                                onChange={this.handleChangeTranslate}/>
                     </div>
@@ -163,7 +163,7 @@ class NewWord extends Component {
                     <div className="row">
                         <div className="col-4 offset-4 form-group">
                             <label htmlFor="pronounce">Pronounciation</label>
-                            <input type="email" className="form-control" id="pronounce"
+                            <input type="text" className="form-control" id="pronounce"
                                    placeholder="Pronounciation" value={this.state.pronounce}
                                    onChange={this.handleChangePronounce}/>
                         </div>
@@ -174,7 +174,7 @@ class NewWord extends Component {
                     <div className="row">
                         <div className="col-4 offset-4 form-group">
                             <label htmlFor="Stem">Stem</label>
-                            <input type="email" className="form-control" id="Stem"
+                            <input type="text" className="form-control" id="Stem"
                                    placeholder="Stem" value={this.state.stem} onChange={this.handleChangeStem}/>
                         </div>
                     </div>
@@ -198,7 +198,7 @@ class NewWord extends Component {
                     <div className="row">
                         <div className="col-4 offset-4 form-group">
                             <label htmlFor="comment">Comments</label>
-                            <input type="email" className="form-control" id="comment"
+                            <input type="text" className="form-control" id="comment"
                                    placeholder="Comments" value={this.state.comment} onChange={this.handleChangeComment}/>
                         </div>
                     </div>

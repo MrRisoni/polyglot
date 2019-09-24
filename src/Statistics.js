@@ -36,6 +36,7 @@ class Statistics extends Component {
                     <tr>
                         <th>Language</th>
                         <th>Total Words</th>
+                        <th>Due</th>
                         <th>Total Avg Due</th>
                         <th>Translated to</th>
                     </tr>
@@ -45,6 +46,7 @@ class Statistics extends Component {
                         return (<tr key={dt.lang}>
                             <td>{dt.lang}</td>
                             <td>{dt.totalWords}</td>
+                            <td>{dt.dueCount}</td>
                             <td>{dt.avgDue}</td>
                             <td>{dt.totalStats}</td>
                         </tr>)
