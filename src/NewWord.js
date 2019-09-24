@@ -138,6 +138,20 @@ class NewWord extends Component {
                 </div>
 
                 <div className="row">
+                    <div className="col-4 offset-4">
+                        {this.state.foreignLangId == 11 &&
+                            <p>å æ ø</p>
+                        }
+                        {this.state.transLangId == 5 &&
+                            <p>ä ö ü ß </p>
+                        }
+
+                    </div>
+                </div>
+
+
+
+                <div className="row">
                     <div className="col-4 offset-4 form-group">
                         <label htmlFor="translate">Translation</label>
                         <input type="text" className="form-control" id="translate"
