@@ -46,7 +46,7 @@ class Statistics extends Component {
                             <td>{dt.lang}</td>
                             <td>{dt.totalWords}</td>
                             <td>{dt.avgDue}</td>
-                            <td>{dt.traLangData}</td>
+                            <td>{dt.totalStats}</td>
                         </tr>)
                     })}
                     </tbody>
