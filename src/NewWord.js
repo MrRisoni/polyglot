@@ -139,8 +139,8 @@ class NewWord extends Component {
 
                 <div className="row">
                     <div className="col-4 offset-4">
-                        {this.state.foreignLangId == 11 &&
-                            <p>å æ ø</p>
+                        {this.state.foreignLangId >= 11 &&
+                            <p>å æ ø ä ö ü </p>
                         }
                         {this.state.transLangId == 5 &&
                             <p>ä ö ü ß </p>
