@@ -81,6 +81,10 @@ class NewWord extends Component {
     chooseLangForeign(ev) {
         console.log(ev.target.value);
         this.setState({foreignLangId: ev.target.value});
+        if (ev.target.value >=11) {
+            this.setState({transLangId: 5});
+
+        }
     }
 
     chooseLangTrans(ev) {
@@ -140,7 +144,7 @@ class NewWord extends Component {
                 <div className="row">
                     <div className="col-4 offset-4">
                         {this.state.foreignLangId >= 11 &&
-                            <p>å æ ø ä ö ü </p>
+                            <p>å æ ø ä ö ü é</p>
                         }
                         {this.state.transLangId == 5 &&
                             <p>ä ö ü ß </p>
