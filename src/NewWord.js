@@ -83,7 +83,12 @@ class NewWord extends Component {
         this.setState({foreignLangId: ev.target.value});
         if (ev.target.value >=11) {
             this.setState({transLangId: 5});
-
+        }
+        if (ev.target.value ==5 ) {
+            this.setState({transLangId: 2});
+        }
+        if (ev.target.value ==4) {
+            this.setState({transLangId: 1});
         }
     }
 
@@ -205,7 +210,7 @@ class NewWord extends Component {
                         <select className="form-control" id="selectTranslate" onChange={this.chooseLangTrans}>
                             <option key={0} value='0'>Choose</option>
                             {this.state.langsList.map((lg) => {
-                                return (<option key={lg.id} value={lg.id}>{lg.title}</option>)
+                                return (<option key={lg.id} selected={lg.id == this.state.transLangId} value={lg.id}>{lg.title}</option>)
                             })}
                         </select>
                     </div>

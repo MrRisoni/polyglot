@@ -30,20 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Statistics.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="48" column="44" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="44" />
+            <state relative-caret-position="-2078">
+              <caret line="69" column="17" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="17" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -54,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NewWord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="144" column="52" selection-start-line="144" selection-start-column="52" selection-end-line="144" selection-end-column="52" />
+            <state relative-caret-position="247">
+              <caret line="88" column="9" lean-forward="true" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -64,13 +52,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
+        <entry file="file://$PROJECT_DIR$/src/FlashyLangChooser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -89,7 +74,6 @@
       <find>Line</find>
       <find>showHints</find>
       <find>avgDueText</find>
-      <find>chooseLangForeign</find>
       <find>foreignLangId</find>
       <find>chosenLangId</find>
       <find>POS</find>
@@ -100,6 +84,9 @@
       <find>getW</find>
       <find>chosenPosId</find>
       <find>email</find>
+      <find>clickNextCard</find>
+      <find>chooseLangForeign</find>
+      <find>transLangId</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\phoenix\Desktop\JS_Projects\polyglot\src</dir>
@@ -113,10 +100,10 @@
       <list>
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/index.css" />
-        <option value="$PROJECT_DIR$/src/FlashCard.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/Statistics.js" />
+        <option value="$PROJECT_DIR$/src/FlashCard.js" />
         <option value="$PROJECT_DIR$/src/NewWord.js" />
       </list>
     </option>
@@ -132,6 +119,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,7 +141,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,17 +202,38 @@
       <workItem from="1569305567983" duration="88000" />
       <workItem from="1569345498012" duration="718000" />
       <workItem from="1569347659865" duration="384000" />
+      <workItem from="1569384650034" duration="13000" />
+      <workItem from="1569384690867" duration="459000" />
+      <workItem from="1569385730580" duration="2000" />
+      <workItem from="1569385795422" duration="192000" />
+      <workItem from="1572088843233" duration="1096000" />
+      <workItem from="1572992573079" duration="367000" />
     </task>
+    <task id="LOCAL-00001" summary="show special letters for nordic langs">
+      <created>1572088972824</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572088972824</updated>
+    </task>
+    <task id="LOCAL-00002" summary="default german">
+      <created>1572089330556</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572089330556</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29674000" />
+    <option name="totallyTimeSpent" value="31803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -251,13 +259,14 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="show special letters for nordic langs" />
+    <MESSAGE value="default german" />
+    <option name="LAST_COMMIT_MESSAGE" value="default german" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/HozianIRabotkin.txt" />
-    <entry file="file://$PROJECT_DIR$/src/TsemLiodiZhivit.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4418" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TsemLiodiZhivit.txt" />
     <entry file="file://$PROJECT_DIR$/src/Word.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -267,13 +276,6 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FlashyLangChooser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -313,10 +315,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
+    <entry file="file://$PROJECT_DIR$/src/Statistics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="32" selection-end-column="51" />
+        <state relative-caret-position="782">
+          <caret line="48" column="44" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="44" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -333,10 +335,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Statistics.js">
+    <entry file="file://$PROJECT_DIR$/src/FlashyLangChooser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="48" column="44" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="44" />
+        <state relative-caret-position="51">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2078">
+          <caret line="69" column="17" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="17" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -345,8 +354,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NewWord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="144" column="52" selection-start-line="144" selection-start-column="52" selection-end-line="144" selection-end-column="52" />
+        <state relative-caret-position="247">
+          <caret line="88" column="9" lean-forward="true" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
