@@ -16,11 +16,12 @@ class NewWord extends Component {
             pronounce: '',
             comment: '',
             stem: '',
-            foreign: ''
+            foreign: '',
+            level: 'X',
         };
 
         this.endPoint = 'https://shielded-brook-92440.herokuapp.com';
-        // this.endPoint =  'http://localhost:3500';
+       // this.endPoint =  'http://localhost:3500';
 
         this.chooseLangForeign = this.chooseLangForeign.bind(this);
         this.chooseLangTrans = this.chooseLangTrans.bind(this);
@@ -30,8 +31,9 @@ class NewWord extends Component {
         this.handleChangeTranslate = this.handleChangeTranslate.bind(this);
         this.handleChangeComment = this.handleChangeComment.bind(this);
         this.handleChangeStem = this.handleChangeStem.bind(this);
-
         this.handleChangePOS = this.handleChangePOS.bind(this);
+        this.handleChangeLevel = this.handleChangeLevel.bind(this);
+
         this.saveWord = this.saveWord.bind(this);
 
     }
@@ -50,6 +52,10 @@ class NewWord extends Component {
             })
         })
 
+    }
+
+    handleChangeLevel(ev) {
+        this.setState({level: ev.target.value});
     }
 
     handleChangePOS(ev) {
@@ -181,6 +187,19 @@ class NewWord extends Component {
                         </select>
                     </div>
                 </div>
+
+                <div className="row" id="langChooser">
+                    <div className="col-4 offset-4">
+                        <label htmlFor="selectLevel">Choose Level</label>
+                        <select className="form-control" id="selectLevel" onChange={this.handleChangeLevel}>
+                            <option key={0} value='0'>X</option>
+                            <option key={1} value='A'>A1-A2</option>
+                            <option key={2} value='B'>B1-B2</option>
+                            <option key={2} value='C'>C1-C2</option>
+                        </select>
+                    </div>
+                </div>
+
 
                 {this.state.foreignLangId == 4 &&
                     <div className="row">
