@@ -39,6 +39,7 @@ class Statistics extends Component {
                         <th>Due</th>
                         <th>Total Avg Due</th>
                         <th>Translated to</th>
+                        <th>Level Statistics</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,7 @@ class Statistics extends Component {
                             <td>{dt.dueCount}</td>
                             <td>{dt.avgDue}</td>
                             <td>{dt.totalStats}</td>
+                            <td>{dt.lvlsCount}</td>
                         </tr>)
                     })}
                     </tbody>
