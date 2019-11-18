@@ -17,11 +17,12 @@ class NewWord extends Component {
             comment: '',
             stem: '',
             foreign: '',
+            example:'',
             level: 'X',
         };
 
         this.endPoint = 'https://shielded-brook-92440.herokuapp.com';
-       // this.endPoint =  'http://localhost:3500';
+       //this.endPoint =  'http://localhost:3500';
 
         this.chooseLangForeign = this.chooseLangForeign.bind(this);
         this.chooseLangTrans = this.chooseLangTrans.bind(this);
@@ -33,6 +34,7 @@ class NewWord extends Component {
         this.handleChangeStem = this.handleChangeStem.bind(this);
         this.handleChangePOS = this.handleChangePOS.bind(this);
         this.handleChangeLevel = this.handleChangeLevel.bind(this);
+        this.handleChangeExample = this.handleChangeExample.bind(this);
 
         this.saveWord = this.saveWord.bind(this);
 
@@ -48,7 +50,8 @@ class NewWord extends Component {
                 stem: '',
                 comment: '',
                 pronounce: '',
-                meaning: ''
+                meaning: '',
+                example: ''
             })
         })
 
@@ -81,6 +84,11 @@ class NewWord extends Component {
 
     handleChangeComment(ev) {
         this.setState({comment: ev.target.value});
+    }
+
+
+    handleChangeExample(ev){
+        this.setState({example: ev.target.value});
     }
 
 
@@ -174,6 +182,16 @@ class NewWord extends Component {
                                onChange={this.handleChangeTranslate}/>
                     </div>
                 </div>
+
+                <div className="row">
+                    <div className="col-9">
+                        <label htmlFor="translate">Example</label>
+                        <input type="text" className="form-control" id="example"
+                               placeholder="Example" value={this.state.example}
+                               onChange={this.handleChangeExample}/>
+                    </div>
+                </div>
+
 
 
                 <div className="row" id="langChooser">
