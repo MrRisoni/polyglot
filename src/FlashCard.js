@@ -29,8 +29,7 @@ class FlashCard extends Component {
 
         this.chooseLang = this.chooseLang.bind(this);
 
-        this.endPoint =  'https://shielded-brook-92440.herokuapp.com';
-      //  this.endPoint =  'http://localhost:3500';
+       this.endPoint =  'http://localhost:3500';
 
         this.changeAvgDays = this.changeAvgDays.bind(this);
 

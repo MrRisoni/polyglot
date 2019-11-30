@@ -21,8 +21,7 @@ class NewWord extends Component {
             level: 'X',
         };
 
-        this.endPoint = 'https://shielded-brook-92440.herokuapp.com';
-       //this.endPoint =  'http://localhost:3500';
+        this.endPoint =  'http://localhost:3500';
 
         this.chooseLangForeign = this.chooseLangForeign.bind(this);
         this.chooseLangTrans = this.chooseLangTrans.bind(this);

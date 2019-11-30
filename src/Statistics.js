@@ -11,8 +11,7 @@ class Statistics extends Component {
             fetched: false
         };
 
-        this.endPoint = 'https://shielded-brook-92440.herokuapp.com';
-        //  this.endPoint =  'http://localhost:3500';
+        this.endPoint =  'http://localhost:3500';
     }
 
     componentDidMount() {
