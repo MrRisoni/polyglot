@@ -20,6 +20,7 @@ class FlashCard extends Component {
             avgDueText:0,
             hints:[],
             properTranslation:'',
+            anImageExists:false,
         };
 
         this.clickShowHints = this.clickShowHints.bind(this);
@@ -41,7 +42,8 @@ class FlashCard extends Component {
     clickShowTranslation()
     {
         this.setState({
-            showTranslation: true
+            showTranslation: true,
+            anImageExists:false
         })
     }
 
@@ -79,6 +81,22 @@ class FlashCard extends Component {
         const thisPosId = this.state.cards[newCounter].posId;
         const thisWordId = this.state.cards[newCounter].wordId;
 
+
+        const self = this;
+        console.log('checkin if image for wordid ' + thisWordId);
+        axios.get('http://localhost:3000/assets/'+ thisWordId +'.jpg').then((response) => {
+            console.log('Exists')
+            self.setState({
+                anImageExists:true
+            })
+        }).catch((error) => {
+            console.log(error)
+            self.setState({
+                anImageExists:false
+            })
+        })
+
+
         let hints =[];
         let properTranslation = '';
         const properTranslationObj = shuffledTranslations.filter( tr => tr.wordId == thisWordId);
@@ -113,6 +131,10 @@ class FlashCard extends Component {
             properTranslation:properTranslation,
             avgDueText: this.state.cards[this.state.counter].avgDue
         })
+
+
+
+
     }
 
     clickShowHints()
@@ -172,10 +194,16 @@ class FlashCard extends Component {
                 langsList: rsp.data,
             })
         })
+
     }
 
     render() {
 
+        let srcImg = '';
+
+        if (this.state.anImageExists) {
+            srcImg = process.env.PUBLIC_URL + '/assets/' + this.state.cards[this.state.counter].wordId +'.jpg';
+        }
 
         return (
             <main>
@@ -185,10 +213,19 @@ class FlashCard extends Component {
                         <div className="row">
                             <div className="col-8 offset-2">
                                 <div className="jumbotron flashCard">
-                                    <h1 className="display-4"><b>{this.state.cards[this.state.counter].wordString}</b></h1>
+                                    {!this.state.anImageExists &&
+                                    <h1 className="display-4"><b>{this.state.cards[this.state.counter].wordString}</b>
+                                        </h1>
+                                    }
                                     <br/>
                                     <br/>
                                     <br/>
+
+                                    {this.state.anImageExists &&
+                                    <img className="img-fluid"
+                                         src={srcImg}/>
+                                    }
+
 
                                     {this.state.showTranslation &&
                                      <h1 className="display-4 translationTxt"><b>{this.state.properTranslation}</b></h1>
