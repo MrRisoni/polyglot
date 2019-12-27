@@ -12,6 +12,8 @@ class Statistics extends Component {
         };
 
         this.endPoint =  'http://localhost:3500';
+        this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
+        
     }
 
     componentDidMount() {
