@@ -22,7 +22,8 @@ class NewWord extends Component {
         };
 
         this.endPoint =  'http://localhost:3500';
-
+this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
+        
         this.chooseLangForeign = this.chooseLangForeign.bind(this);
         this.chooseLangTrans = this.chooseLangTrans.bind(this);
 
