@@ -60,6 +60,15 @@ code {
 }
 
 
+.langSection {
+    margin-top: 5%;
+}
+
 .translationTxt {
     color:green;
+}
+
+
+.langFlag {
+    height: 90px;
 }

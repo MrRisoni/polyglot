@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import Language from "./Language";
 
 class Statistics extends Component {
 
@@ -11,7 +12,7 @@ class Statistics extends Component {
             fetched: false
         };
 
-        this.endPoint =  'http://localhost:3500';
+        this.endPoint =  'https://fathomless-oasis-08873.herokuapp.com';
     }
 
     componentDidMount() {
@@ -26,34 +27,20 @@ class Statistics extends Component {
     }
 
     render() {
+
+
         return (
             <section>
 
                 {this.state.fetched &&
-                <table className="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th>Language</th>
-                        <th>Total Words</th>
-                        <th>Due</th>
-                        <th>Total Avg Due</th>
-                        <th>Translated to</th>
-                        <th>Level Statistics</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.state.data.map((dt) => {
-                        return (<tr key={dt.lang}>
-                            <td>{dt.lang}</td>
-                            <td>{dt.totalWords}</td>
-                            <td>{dt.dueCount}</td>
-                            <td>{dt.avgDue}</td>
-                            <td>{dt.totalStats}</td>
-                            <td>{dt.lvlsCount}</td>
-                        </tr>)
+                    <div className="row">
+                    {this.state.data.map((lang) => {
+                        return (<div className="col-4">
+                            <Language key={lang.lanId} data={lang}/>
+                         </div>);
                     })}
-                    </tbody>
-                </table>
+                    </div>
+
                 }
 
                 <ul>
