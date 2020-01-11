@@ -41,22 +41,13 @@ class Language extends Component {
 
                         <div className="row">
 
-                            <table className="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Set</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                            <select className="form-control" id="selectSet" onChange={this.chooseSet}>
+                                <option key={0} value='0'>Choose</option>
+
                                 {this.props.data.sets.map((set) => {
-                                    return (<tr key={set.setId}>
-                                        <td>{set.title}</td>
-                                    </tr>)
+                                    return (<option key={set.sourceLangId} value={set.sourceLangId}>{set.src_title} with {set.ttlSrc}  words </option>)
                                 })}
-                                </tbody>
-                            </table>
-
-
+                            </select>
                         </div>
                     </div>
                 </div>
