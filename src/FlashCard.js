@@ -21,6 +21,8 @@ class FlashCard extends Component {
             hints:[],
             properTranslation:'',
             anImageExists:false,
+            sourcesAll:[],
+            sourceOptions:[],
         };
 
         this.clickShowHints = this.clickShowHints.bind(this);
@@ -30,14 +32,26 @@ class FlashCard extends Component {
 
         this.chooseLang = this.chooseLang.bind(this);
 
-       this.endPoint =  'http://localhost:3500';
+
+
+        this.endPoint =  'http://localhost:3500';
         this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
-        
+
+
         this.changeAvgDays = this.changeAvgDays.bind(this);
 
         this.updateDays = this.updateDays.bind(this);
 
         this.clickShowTranslation = this.clickShowTranslation.bind(this);
+
+        this.chooseSource = this.chooseSource.bind(this);
+
+
+        this.los = this.los.bind(this);
+    }
+
+    chooseSource(ev) {
+        this.setState({sourceId: ev.target.value});
     }
 
     clickShowTranslation()
@@ -150,7 +164,7 @@ class FlashCard extends Component {
         const self = this;
         console.log('fetchWords of ' + lgId);
 
-        axios.get(self.endPoint + '/api/wordsdue/' + lgId).then(rsp => {
+        axios.get(self.endPoint + '/api/wordsdue/' + lgId +'/' + this.state.sourceId).then(rsp => {
             self.setState({
                 cards: _.shuffle(rsp.data),
                 fetched: true,
@@ -175,11 +189,24 @@ class FlashCard extends Component {
     }
 
 
+    los()
+    {
+        this.fetchWords(this.state.chosenLangId);
+        this.fetchTranslations(this.state.chosenLangId);
+    }
 
     chooseLang(ev)
     {
-       this.fetchWords(ev.target.value);
-        this.fetchTranslations(ev.target.value);
+     //  this.fetchWords(ev.target.value);
+      ///  this.fetchTranslations(ev.target.value);
+
+
+        let newOptions = this.state.sourcesAll.filter( (src) => {
+            return (src.sourceLangId == ev.target.value);
+        });
+
+        this.setState({sourceOptions: newOptions,
+            chosenLangId:ev.target.value });
 
     }
 
@@ -195,6 +222,12 @@ class FlashCard extends Component {
                 langsList: rsp.data,
             })
         })
+
+        axios.get(self.endPoint + '/api/sources_all').then(rsp => {
+            self.setState({
+                sourcesAll: rsp.data,
+            });
+        });
 
     }
 
@@ -301,6 +334,26 @@ class FlashCard extends Component {
                             </select>
 
                     </div>
+                </div>
+
+
+                <div className="row" id="sourceChooser">
+                    <div className="col-4 offset-4">
+                        <label htmlFor="selectSource">Choose Source</label>
+                        <select className="form-control" id="selectSource" onChange={this.chooseSource}>
+                            <option key={0} value='0'>Choose</option>
+                            {this.state.sourceOptions.map((srcOpt) => {
+                                return (<option key={srcOpt.srcId}  value={srcOpt.srcId}>{srcOpt.src_title}</option>)
+                            })}
+                        </select>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-2 offset-3">
+                        <button type="button" className="btn btn-success" onClick={this.los}>GO!!!</button>
+                    </div>
+
                 </div>
             </main>
         );

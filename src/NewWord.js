@@ -19,11 +19,15 @@ class NewWord extends Component {
             foreign: '',
             example:'',
             level: 'X',
+            sourcesAll:[],
+            sourceOptions:[],
+            sourceId:0,
         };
 
         this.endPoint =  'http://localhost:3500';
-this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
-        
+
+        this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
+
         this.chooseLangForeign = this.chooseLangForeign.bind(this);
         this.chooseLangTrans = this.chooseLangTrans.bind(this);
 
@@ -35,7 +39,7 @@ this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
         this.handleChangePOS = this.handleChangePOS.bind(this);
         this.handleChangeLevel = this.handleChangeLevel.bind(this);
         this.handleChangeExample = this.handleChangeExample.bind(this);
-
+        this.chooseSource = this.chooseSource.bind(this);
         this.saveWord = this.saveWord.bind(this);
 
     }
@@ -55,6 +59,10 @@ this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
             })
         })
 
+    }
+
+    chooseSource(ev) {
+        this.setState({sourceId: ev.target.value});
     }
 
     handleChangeLevel(ev) {
@@ -104,6 +112,13 @@ this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
         if (ev.target.value ==4) {
             this.setState({transLangId: 1});
         }
+
+        let newOptions = this.state.sourcesAll.filter( (src) => {
+            return (src.sourceLangId == ev.target.value);
+        });
+
+        this.setState({sourceOptions: newOptions});
+
     }
 
     chooseLangTrans(ev) {
@@ -132,6 +147,12 @@ this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
                 posList: rsp.data,
             });
         });
+
+        axios.get(self.endPoint + '/api/sources_all').then(rsp => {
+            self.setState({
+                sourcesAll: rsp.data,
+            });
+        });
     }
 
     render() {
@@ -146,6 +167,18 @@ this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
 
                             {this.state.langsListForeign.map((lg) => {
                                 return (<option key={lg.id} value={lg.id}>{lg.title}</option>)
+                            })}
+                        </select>
+                    </div>
+                </div>
+
+                <div className="row" id="sourceChooser">
+                    <div className="col-4 offset-4">
+                        <label htmlFor="selectSource">Choose Source</label>
+                        <select className="form-control" id="selectSource" onChange={this.chooseSource}>
+                            <option key={0} value='0'>Choose</option>
+                            {this.state.sourceOptions.map((srcOpt) => {
+                                return (<option key={srcOpt.srcId}  value={srcOpt.srcId}>{srcOpt.src_title}</option>)
                             })}
                         </select>
                     </div>
@@ -252,6 +285,7 @@ this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
                         </select>
                     </div>
                 </div>
+
 
 
                 {this.state.foreignLangId == 4 &&

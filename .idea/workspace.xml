@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4f162935-799a-45ab-b7a8-269efde10963" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Language.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Language.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FlashCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlashCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewWord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewWord.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +31,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NewWord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2414">
-              <caret line="143" selection-start-line="143" selection-end-line="149" selection-end-column="33" />
+            <state relative-caret-position="161">
+              <caret line="63" column="3" selection-start-line="63" selection-start-column="3" selection-end-line="65" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -42,7 +55,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Statistics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
+            <state relative-caret-position="503">
               <caret line="44" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -51,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Language.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -96,11 +109,9 @@
       <find>showHints</find>
       <find>avgDueText</find>
       <find>foreignLangId</find>
-      <find>chosenLangId</find>
       <find>POS</find>
       <find>properTranslation</find>
       <find>nextCard</find>
-      <find>fetchWords</find>
       <find>shuffle</find>
       <find>getW</find>
       <find>chosenPosId</find>
@@ -108,6 +119,14 @@
       <find>clickNextCard</find>
       <find>chooseLangForeign</find>
       <find>transLangId</find>
+      <find>sourcesAll</find>
+      <find>fetchTranslations</find>
+      <find>chooseLang</find>
+      <find>chosenLangId</find>
+      <find>fetchWords</find>
+      <find>sourceOptions</find>
+      <find>chooseSource</find>
+      <find>wordsdue</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\phoenix\Desktop\JS_Projects\polyglot\src</dir>
@@ -122,11 +141,11 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/NewWord.js" />
-        <option value="$PROJECT_DIR$/src/FlashCard.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/Statistics.js" />
         <option value="$PROJECT_DIR$/src/Language.js" />
+        <option value="$PROJECT_DIR$/src/NewWord.js" />
+        <option value="$PROJECT_DIR$/src/FlashCard.js" />
       </list>
     </option>
   </component>
@@ -141,6 +160,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -168,7 +188,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -249,6 +268,8 @@
       <workItem from="1578742803048" duration="381000" />
       <workItem from="1578743610561" duration="359000" />
       <workItem from="1578745477830" duration="296000" />
+      <workItem from="1578761054737" duration="66000" />
+      <workItem from="1578761233931" duration="1752000" />
     </task>
     <task id="LOCAL-00001" summary="show special letters for nordic langs">
       <created>1572088972824</created>
@@ -282,7 +303,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43755000" />
+    <option name="totallyTimeSpent" value="45573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -356,36 +377,6 @@
     <entry file="file://$PROJECT_DIR$/src/Word.js" />
     <entry file="file://$PROJECT_DIR$/src/Line.js" />
     <entry file="file://$PROJECT_DIR$/src/FlashyLangChooser.js" />
-    <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewWord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="143" selection-start-line="143" selection-end-line="149" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Statistics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
@@ -407,6 +398,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="47" column="132" selection-start-line="47" selection-start-column="132" selection-end-line="47" selection-end-column="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Statistics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewWord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="63" column="3" selection-start-line="63" selection-start-column="3" selection-end-line="65" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
