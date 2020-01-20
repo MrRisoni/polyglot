@@ -326,13 +326,12 @@ class FlashCard extends Component {
 
                 <div className="row" id="langChooser">
                     <div className="col-4 offset-4" >
-                            <label htmlFor="exampleFormControlSelect1">Choose Language</label>
-                            <select className="form-control" id="exampleFormControlSelect1" onChange={this.chooseLang}>
+                            <label htmlFor="langChooser">Choose Language</label>
+                            <select className="form-control" id="langChooser" onChange={this.chooseLang}>
                                 {this.state.langsList.map((lg) => {
                                     return (<option key={lg.id} selected={lg.id== this.state.chosenLangId} value={lg.id}>{lg.title}</option>)
                                 })}
                             </select>
-
                     </div>
                 </div>
 

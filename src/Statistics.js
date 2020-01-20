@@ -50,6 +50,9 @@ class Statistics extends Component {
                     <li>
                         <Link to="/newword">New Word</Link>
                     </li>
+                    <li>
+                        <Link to="/bookslist">Books List</Link>
+                    </li>
                 </ul>
 
             </section>

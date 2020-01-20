@@ -72,3 +72,12 @@ code {
 .langFlag {
     height: 90px;
 }
+
+
+.bookImg {
+    height: 180px;
+}
+
+.bookRow {
+    margin-top: 5%;
+}
