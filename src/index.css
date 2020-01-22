@@ -76,8 +76,14 @@ code {
 
 .bookImg {
     height: 180px;
+    display:block;
+    margin:auto;
 }
 
 .bookRow {
     margin-top: 5%;
+}
+
+.bookTitle {
+    text-align: center;
 }

@@ -8,6 +8,7 @@ class BookList extends Component {
             books: [],
             langsList: [],
             formats:[],
+            authors:[],
             fetched: false,
             chosenLangId:0,
             chosenFormatId:1,
@@ -42,24 +43,16 @@ class BookList extends Component {
     componentDidMount() {
         const self = this;
 
-        axios.get(self.endPoint + '/api/books_wip').then(rsp => {
+        axios.get(self.endPoint + '/api/reading').then(rsp => {
             self.setState({
-                books: rsp.data,
+                books: rsp.data[0],
+                langsList: rsp.data[1],
+                formats: rsp.data[2],
+                authors: rsp.data[3],
                 fetched: true
             })
         })
 
-        axios.get(self.endPoint + '/api/langsall').then(rsp => {
-            self.setState({
-                langsList: rsp.data,
-            });
-        });
-
-        axios.get(self.endPoint + '/api/formats').then(rsp => {
-            self.setState({
-                formats: rsp.data,
-            });
-        });
 
 
     }
@@ -75,6 +68,7 @@ class BookList extends Component {
                     <div className="row" id="langChooser">
                         <div className="col-4 offset-4" >
                             <select className="form-control" id="langChooser" onChange={this.chooseLang}>
+                                <option key="0" value="0">All</option>
                                 {this.state.langsList.map((lg) => {
                                     return (<option key={lg.id} selected={lg.id== this.state.chosenLangId} value={lg.id}>{lg.title}</option>)
                                 })}
@@ -85,6 +79,7 @@ class BookList extends Component {
                     <div className="row" id="formatChooser">
                         <div className="col-4 offset-4" >
                             <select className="form-control" id="formatChooser" onChange={this.chooseFormat}>
+                                <option key="0" value="0">All</option>
                                 {this.state.formats.map((fr) => {
                                     return (<option key={fr.Id} selected={fr.id== this.state.chosenFormatId} value={fr.Id}>{fr.title}</option>)
                                 })}
@@ -92,22 +87,37 @@ class BookList extends Component {
                         </div>
                     </div>
 
+
+                    <div className="row" id="authorChooser">
+                        <div className="col-4 offset-4" >
+                            <select className="form-control" id="authorChooser" onChange={this.chooseAuthor}>
+                                <option key="0" value="0">All</option>
+                                {this.state.authors.map((auth) => {
+                                    return (<option key={auth.id} selected={auth.id== this.state.chosenFormatId} value={auth.id}>{auth.name}</option>)
+                                })}
+                            </select>
+                        </div>
+                    </div>
+
                     {this.state.books.map((bk) => {
                         var prog = (bk.currentPage * 100 / bk.pagesTotal).toFixed(2);
+                        var ImgPath = process.env.PUBLIC_URL + '/assets/books/' + bk.code  + '.jpg';
+
                         return (<div className="row bookRow">
                             <div className="col-12">
 
                                 <div className="card">
-                                    <div className="card-header">
+                                    <div className="card-header bookTitle">
                                         {bk.title}
                                     </div>
                                     <div className="card-body">
 
+
                                         <img className="bookImg"
-                                             src={process.env.PUBLIC_URL + '/assets/potter.jpg'}/>
+                                             src={ImgPath}/>
 
                                     </div>
-                                    <div className="card-footer">
+                                    <div className="card-footer bookTitle">
                                         Progress {prog}% : {bk.currentPage}/{bk.pagesTotal}
                                     </div>
                                 </div>

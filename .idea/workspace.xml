@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f162935-799a-45ab-b7a8-269efde10963" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FlashCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlashCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BookList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NewWord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1248">
-              <caret line="128" column="25" lean-forward="true" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
+            <state relative-caret-position="2159">
+              <caret line="128" column="25" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -46,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="212">
-              <caret line="329" column="76" selection-start-line="329" selection-start-column="76" selection-end-line="329" selection-end-column="76" />
+              <caret line="238" column="24" lean-forward="true" selection-start-line="238" selection-end-line="239" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BookList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="88" column="76" selection-start-line="88" selection-start-column="76" selection-end-line="88" selection-end-column="76" />
+            <state relative-caret-position="184">
+              <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -69,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Statistics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
+            <state relative-caret-position="503">
               <caret line="34" column="21" selection-start-line="34" selection-end-line="35" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -90,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="77" column="14" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+            <state relative-caret-position="214">
+              <caret line="76" column="10" lean-forward="true" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -142,6 +139,7 @@
       <find>wordsdue</find>
       <find>&quot;</find>
       <find>chooseLang</find>
+      <find>img</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -162,8 +160,8 @@
         <option value="$PROJECT_DIR$/src/NewWord.js" />
         <option value="$PROJECT_DIR$/src/Statistics.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/FlashCard.js" />
+        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/BookList.js" />
       </list>
     </option>
@@ -179,6 +177,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,13 +199,19 @@
             <path>
               <item name="polyglot" type="b2602c69:ProjectViewProjectNode" />
               <item name="polyglot" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="polyglot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="polyglot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -292,6 +297,7 @@
       <workItem from="1579544870549" duration="9000" />
       <workItem from="1579545179619" duration="1237000" />
       <workItem from="1579546490283" duration="510000" />
+      <workItem from="1579671295010" duration="1914000" />
     </task>
     <task id="LOCAL-00001" summary="show special letters for nordic langs">
       <created>1572088972824</created>
@@ -325,7 +331,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47349000" />
+    <option name="totallyTimeSpent" value="49263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -399,10 +405,10 @@
     <entry file="file://$PROJECT_DIR$/src/Word.js" />
     <entry file="file://$PROJECT_DIR$/src/Line.js" />
     <entry file="file://$PROJECT_DIR$/src/FlashyLangChooser.js" />
-    <entry file="file://$PROJECT_DIR$/src/Statistics.js">
+    <entry file="file://$PROJECT_DIR$/src/NewWord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="21" selection-start-line="34" selection-end-line="35" />
+        <state relative-caret-position="2159">
+          <caret line="128" column="25" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -416,13 +422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="77" column="14" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -433,20 +432,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewWord.js">
+    <entry file="file://$PROJECT_DIR$/src/Statistics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1248">
-          <caret line="128" column="25" lean-forward="true" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
+        <state relative-caret-position="503">
+          <caret line="34" column="21" selection-start-line="34" selection-end-line="35" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="76" column="10" lean-forward="true" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FlashCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
-          <caret line="329" column="76" selection-start-line="329" selection-start-column="76" selection-end-line="329" selection-end-column="76" />
+          <caret line="238" column="24" lean-forward="true" selection-start-line="238" selection-end-line="239" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -455,8 +461,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BookList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="88" column="76" selection-start-line="88" selection-start-column="76" selection-end-line="88" selection-end-column="76" />
+        <state relative-caret-position="184">
+          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
