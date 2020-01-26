@@ -87,3 +87,7 @@ code {
 .bookTitle {
     text-align: center;
 }
+
+.chooserOptions {
+    margin-bottom: 15px;
+}

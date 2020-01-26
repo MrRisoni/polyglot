@@ -1,42 +1,82 @@
 import React, {Component} from 'react';
-import axios from "axios";
+import axios from 'axios';
+import BookItem from './BookItem';
 
 class BookList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             books: [],
+            booksFiltered: [],
             langsList: [],
             formats:[],
             authors:[],
             fetched: false,
             chosenLangId:0,
-            chosenFormatId:1,
+            chosenFormatId:0,
+            chosenAuthorId:0,
+
 
         };
 
         this.chooseLang = this.chooseLang.bind(this);
         this.chooseFormat = this.chooseFormat.bind(this);
+        this.chooseAuthor = this.chooseAuthor.bind(this);
 
 
-
+        this.filterBooks = this.filterBooks.bind(this)
 
 
         this.endPoint = 'http://localhost:3500';
 
-        this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
+       this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
 
+    }
+
+
+    filterBooks()
+    {
+        console.log(this.state.chosenAuthorId + ' ' + this.state.chosenFormatId +  ' ' + this.state.chosenLangId )
+
+
+        var filteredList =  [];
+        if (this.state.fetched) {
+            this.state.books.forEach((bk) => {
+                var matchesLang = (bk.bok_lang_id == this.state.chosenLangId) || (this.state.chosenLangId==0);
+                var matchesFormat = (bk.bok_format_id == this.state.chosenFormatId) || (this.state.chosenFormatId==0);
+                var matchesAuth= (bk.bok_author_id == this.state.chosenAuthorId) || (this.state.chosenAuthorId==0);
+
+                var criteriaMatch = matchesAuth && matchesFormat && matchesLang;
+
+                console.log(matchesAuth + ' ' + matchesFormat + ' ' + matchesLang)
+                if (criteriaMatch) {
+                    filteredList.push(bk)
+                }
+
+            })
+
+        }
+
+        this.setState({booksFiltered : filteredList});
+
+    }
+
+
+    chooseAuthor(ev)
+    {
+        this.setState({chosenAuthorId : ev.target.value})
     }
 
 
     chooseFormat(ev)
     {
-
+        this.setState({chosenFormatId : ev.target.value})
     }
 
 
     chooseLang(ev)
     {
+        this.setState({chosenLangId : ev.target.value})
 
     }
 
@@ -59,13 +99,15 @@ class BookList extends Component {
 
 
     render() {
+
+
         return (
             <section>
                 {this.state.fetched &&
 
                 <div>
 
-                    <div className="row" id="langChooser">
+                    <div className="row chooserOptions" id="langChooser">
                         <div className="col-4 offset-4" >
                             <select className="form-control" id="langChooser" onChange={this.chooseLang}>
                                 <option key="0" value="0">All</option>
@@ -76,7 +118,7 @@ class BookList extends Component {
                         </div>
                     </div>
 
-                    <div className="row" id="formatChooser">
+                    <div className="row chooserOptions" id="formatChooser">
                         <div className="col-4 offset-4" >
                             <select className="form-control" id="formatChooser" onChange={this.chooseFormat}>
                                 <option key="0" value="0">All</option>
@@ -88,7 +130,7 @@ class BookList extends Component {
                     </div>
 
 
-                    <div className="row" id="authorChooser">
+                    <div className="row chooserOptions" id="authorChooser">
                         <div className="col-4 offset-4" >
                             <select className="form-control" id="authorChooser" onChange={this.chooseAuthor}>
                                 <option key="0" value="0">All</option>
@@ -99,30 +141,16 @@ class BookList extends Component {
                         </div>
                     </div>
 
-                    {this.state.books.map((bk) => {
-                        var prog = (bk.currentPage * 100 / bk.pagesTotal).toFixed(2);
-                        var ImgPath = process.env.PUBLIC_URL + '/assets/books/' + bk.code  + '.jpg';
+                    <div className="row" id="authorChooser">
+                        <div className="col-4 offset-5" >
+                            <button type="button" className="btn btn-primary" onClick={this.filterBooks}>Filter</button>
 
-                        return (<div className="row bookRow">
-                            <div className="col-12">
+                        </div>
+                    </div>
 
-                                <div className="card">
-                                    <div className="card-header bookTitle">
-                                        {bk.title}
-                                    </div>
-                                    <div className="card-body">
+                    {this.state.booksFiltered.map((bk) => {
+                            return (<BookItem boekItm={bk}/>);
 
-
-                                        <img className="bookImg"
-                                             src={ImgPath}/>
-
-                                    </div>
-                                    <div className="card-footer bookTitle">
-                                        Progress {prog}% : {bk.currentPage}/{bk.pagesTotal}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>)
                     })}
                 </div>
 
