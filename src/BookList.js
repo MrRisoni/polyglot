@@ -27,9 +27,9 @@ class BookList extends Component {
         this.filterBooks = this.filterBooks.bind(this)
 
 
-        this.endPoint = 'http://localhost:3500';
 
-       this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
+        this.endPoint = 'http://localhost:3500';
+        this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
 
     }
 
@@ -84,6 +84,7 @@ class BookList extends Component {
         const self = this;
 
         axios.get(self.endPoint + '/api/reading').then(rsp => {
+
             self.setState({
                 books: rsp.data[0],
                 langsList: rsp.data[1],
@@ -148,7 +149,7 @@ class BookList extends Component {
                         </div>
                     </div>
 
-                    {this.state.booksFiltered.map((bk) => {
+                    {this.state.books.map((bk) => {
                             return (<BookItem boekItm={bk}/>);
 
                     })}

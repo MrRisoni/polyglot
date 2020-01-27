@@ -12,9 +12,10 @@ class BookItem extends Component {
         this.updateProgress = this.updateProgress.bind(this);
 
 
-        this.endPoint = 'http://localhost:3500';
 
+        this.endPoint = 'http://localhost:3500';
         this.endPoint = 'http://fathomless-oasis-08873.herokuapp.com';
+
 
     }
 
@@ -35,8 +36,12 @@ class BookItem extends Component {
         })
     }
 
+
     render() {
         let bk = this.props.boekItm;
+
+        console.log(bk);
+        console.log(bk.auth.name);
 
         var prog = (bk.currentPage * 100 / bk.pagesTotal).toFixed(2);
         var ImgPath = process.env.PUBLIC_URL + '/assets/books/' + bk.code  + '.jpg';
@@ -45,7 +50,7 @@ class BookItem extends Component {
 
                 <div className="card">
                     <div className="card-header bookTitle">
-                        {bk.title}
+                        {bk.title} | {bk.auth.name} | {bk.lang.title}
                     </div>
                     <div className="card-body">
 
