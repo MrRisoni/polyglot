@@ -149,7 +149,7 @@ class BookList extends Component {
                         </div>
                     </div>
 
-                    {this.state.books.map((bk) => {
+                    {this.state.booksFiltered.map((bk) => {
                             return (<BookItem boekItm={bk}/>);
 
                     })}

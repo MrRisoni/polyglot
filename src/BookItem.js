@@ -50,7 +50,7 @@ class BookItem extends Component {
 
                 <div className="card">
                     <div className="card-header bookTitle">
-                        {bk.title} | {bk.auth.name} | {bk.lang.title}
+                        {bk.title} | {bk.auth.name} | {bk.lang.title} | {bk.code}
                     </div>
                     <div className="card-body">
 
